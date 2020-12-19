@@ -35,12 +35,16 @@ def data_preparation():
 
 
 def main():
+    import time
+    import numpy as np
+
     os.chdir('/Users/16477/Desktop/Data Science/final_project')
     x_train_num, trainint_Y, x_test_num_fill, test_Y = data_preparation()
-
+    start_time = time.time()
     model = classifier(training_x=x_train_num, training_y=trainint_Y,
                        test_x=x_test_num_fill, test_y=test_Y)
-    model.xgboost()
+    model.logistic_regression()
+    print("--- %s seconds ---" % np.round(time.time() - start_time, 3))
 
 
 if __name__ == '__main__':
